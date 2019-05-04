@@ -7,9 +7,12 @@ yb = fb(2,matches(2,1:4));
 
 xy = [xa;ya]';
 xaya = [xb;yb]';
-projMat = fitgeotrans(xy, xaya, 'projective');
+projMat = createProjectionMatrixE(xy, xaya);
 
-faLocations = [fa(1,matches(1,:));fa(2,matches(1,:))]';
+fbLocations = [fb(1,matches(2,:));fb(2,matches(2,:))]
 
-projected = transformPointsForward(projMat, faLocations);
+faHomogeneous = [fa(1,matches(1,:));fa(2,matches(1,:)); ones(size(fa(1,matches(1,:))))];
+
+% projected = transformPointsForward(projMat, faLocations);
+projected = projMat * faHomogeneous;
 end
