@@ -31,7 +31,7 @@ function  bestmodel = ransac(data, s, N, T, d)
            %Find two points on line:
            y1 = polyval(line_fit,-2);
            y2 = polyval(line_fit,15);
-           point1 = [-2; y1];
+               point1 = [-2; y1];
            point2 = [15; y2];
 
            %Calculate distance to line.

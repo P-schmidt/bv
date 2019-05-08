@@ -1,5 +1,5 @@
 %The function below creates the projection matrix.
-function  projMatrix = createProjectionMatrixE(xy, uv)
+function  projMatrix = createProjectionMatrixwk3(xy, uv)
 
     %This code was given in the assignment and it creates a matrix A.
     x = xy(:, 1);

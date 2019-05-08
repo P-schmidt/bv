@@ -13,7 +13,8 @@ xb = fb(1,matches(2,:)) + size(Ia,2) + borderSize;
 ya = fa(2,matches(1,:));
 yb = fb(2,matches(2,:));
 hold on;
-% drawlines between matching keypoints
+
+% draw lines between matching keypoints
 h = line([xa ; xb], [ya ; yb]) ;
 set(h,'linewidth', 1, 'color', 'b') ;
 
