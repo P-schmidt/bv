@@ -1,4 +1,4 @@
-function [h, thetas, rhos] = hough(im, Thresh , nrho , ntheta)
+function h = hough(im, Thresh , nrho , ntheta)
 % HOUGH
 %
 % Function  takes a grey  scale  image , constructs  an edge  map by  applying
@@ -20,7 +20,7 @@ function [h, thetas, rhos] = hough(im, Thresh , nrho , ntheta)
 [width, height] = size(im);
 rhomax = sqrt(width^2 + height^2);        % The  maximum  possible  value  of rho.
 drho = 2*rhomax /(nrho -1);             % The  increment  in rho  between  successive                                        
-rhos = (-rhomax:drho:rhomax);                                   % entries  in the  accumulator  matrix.
+                                        % entries  in the  accumulator  matrix.
                                         % Remember  we go  between +-rhomax.
 
 dtheta = pi/ntheta;                     % The  increment  in theta  between  entries.
@@ -35,7 +35,7 @@ edgeIm = edge(im, 'canny', Thresh);
 
 for yx = [Yidx';Xidx']
     for theta=thetas
-          rho = yx(2)*sin(theta) + yx(1)*cos(theta);
+          rho = yx(2)*sin(theta) - yx(1)*cos(theta);
        
           % To  convert a value of rho or  theta
           % to its  appropriate  index in the  array  use:
@@ -45,14 +45,11 @@ for yx = [Yidx';Xidx']
           accum(rhoIndex, thetaIndex) = accum(rhoIndex, thetaIndex) + 1;
     end
 end
-size(accum);
-[peak, pIndex] = max(max(accum));
+
 h = accum;
 
 
 end
-% ...   
-% for  each x and y of  nonzero  edge  values:
-% for  each  theta in  thetas:
+
 
 
