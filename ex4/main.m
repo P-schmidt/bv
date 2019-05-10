@@ -3,10 +3,15 @@ im = imread('shapes.png');
 im = rgb2gray(im);
 figure(1);
 imshow(im);
+hold on
 
-h = hough(im, 0.8, 180, 180);
-figure; 
-h1 = imshow(h, []);
-axis on
-impixelinfo(h1);
+
+h = hough(im, 0.8, 90, 90);
+% figure; 
+% h = imshow(h, []);
+% axis on
+
+lines = houghlines(im, h, 0.58)
+
+
 
