@@ -8,6 +8,7 @@ for point = points.'
     if distance < epsilon
         point = point.';
         pts = [pts; point];
+    end
 end
 end
     

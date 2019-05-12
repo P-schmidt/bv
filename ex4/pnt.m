@@ -6,6 +6,8 @@ function points = pnt(image)
     pts = [ ];
     pts = [pts x];
     pts = [pts y];
+    
+    %Append a column of ones.
     row_size = size(pts, 1);
     ones_col = ones(1, row_size);
     ones_col = ones_col.';
